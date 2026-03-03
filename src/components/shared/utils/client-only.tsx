@@ -15,4 +15,3 @@ export const ClientOnly = ({ children }: Props) => {
     return <>{children}</>;
 };
 
-export default ClientOnly;

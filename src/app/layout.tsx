@@ -1,30 +1,24 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next';
+import './globals.css';
+import Providers from '@/providers';
+import { figtree, index } from '@/assets/fonts';
+import { LayoutShell } from '@/app/_components/layout-shell';
 
 export const metadata: Metadata = {
-  title: "Zaman Kapsülüm",
+  title: 'Zaman Kapsülüm',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type Props = {
+  children: Readonly<React.ReactNode>;
+};
+
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang="tr">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="tr" className={figtree.variable}>
+      <body className={`${index.variable}`}>
+        <Providers>
+          <LayoutShell>{children}</LayoutShell>
+        </Providers>
       </body>
     </html>
   );

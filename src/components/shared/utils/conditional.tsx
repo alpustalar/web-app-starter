@@ -3,7 +3,6 @@ type Props = {
     children: Readonly<React.ReactNode>;
 };
 
-const Conditional = ({ show, children }: Props) => {
+export const Conditional = ({ show, children }: Props) => {
     return show ? <>{children}</> : null;
 };
-export default Conditional;
